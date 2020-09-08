@@ -23,16 +23,10 @@ shrinkSchema.statics.createKey = async function  () {
   do {
    key = Math.random().toString(36).substring(2, 10);
    exists =  await Shrink.findOne({key});
-   console.log("on model: ", key, exists)
   } 
   while (exists)
   return key;
 };
-
-shrinkSchema.statics.buildURL = () => {
-  return `${process.env.URL_HOSTED}/${this.key}`
-}
-
 
 const Shrink = mongoose.model('Shrink', shrinkSchema);
 

@@ -12,7 +12,6 @@ router.post("/", async (req,res,next)=> {
   try {
     const url = req.body.url; 
     let key = await Shrink.createKey();
-    console.log("key; ", key);
 
     const data = {
         url,
@@ -21,8 +20,7 @@ router.post("/", async (req,res,next)=> {
   
     const shrinked = new Shrink(data);
     const savedDoc = await shrinked.save();
-    console.log("shrinked: ", savedDoc);
-    const shortURL = /*shrinked.buildURL();*/ `${process.env.URL_HOSTED}/${shrinked.key}`;
+    const shortURL = `${process.env.URL_HOSTED}/${shrinked.key}`;
     
     res.send({success: true, url: shortURL})
     

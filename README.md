@@ -35,7 +35,7 @@ Body
 }
 ```
 
-it will response with
+The response will be like:
 
 ```json
 {
